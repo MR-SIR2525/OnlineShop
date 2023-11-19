@@ -1,12 +1,12 @@
 ## Online Shop for Pearl River Community College’s Bookstore
-##
-## Andrew Blythe
-## Coding Technology Program, Pearl River Community College
-## Capstone Coding Project
-## Instructors: Dr. Silvia Preston and Said Otwane
-## November 28, 2022
 
-# Abstract
+Andrew Blythe  
+Coding Technology Program, Pearl River Community College  
+Capstone Coding Project  
+Instructors: Dr. Silvia Preston and Said Otwane  
+November 28, 2022  
+
+## Abstract
 For the Capstone Project of the Coding Technology Program, I set out to create an online shopping website for the Bookstore at Pearl River Community College – Forrest County Campus using Django. The website was built to allow students to view and purchase the products offered by the Bookstore, also known as the Wildcat Den. The website features a home page where products are displayed after being fetched from the database. Users may filter by category or search for products by name. The online store also includes user accounts, account-linked sessions, a shopping cart similar to those typically found in online stores, and the groundwork for checkout and payment processing. Staff accounts are also included, allowing store staff to control the online shop.
 
 ## Main Users
@@ -26,16 +26,16 @@ built using Django, a web framework written in Python.
 
 
 ### Sources and References
-[Youtube Tutorial I used](https://youtu.be/YZvRrldjf1Y)
-[Just Django, the YouTube channel owner's website](https://justdjango.com/)
-[CSS template I built from](https://mdbootstrap.com/freebies/jquery/e-commerce/#!)
-[Formatting monetary numbers with 'humanize'](https://stackoverflow.com/a/347560)
-[Account authentication: login, signup, etc](https://github.com/pennersr/django-allauth)
-[Modern usage of Django alluth](https://www.webforefront.com/django/usermanagementallauth.html)
-[Allowing users to edit account info](https://stackoverflow.com/a/62899728)
-[USStateField with choices](https://stackoverflow.com/a/1831027)
-[USStateField](https://github.com/django/django-localflavor)
-[Django Software Foundation & Contributors](https://www.djangoproject.com/)
-[Django localflavor (official)](https://github.com/django/django-localflavor)
-[Stripe payment HTML/CSS](https://stripe.com/docs/payments/elements)
-[Search products functionality](https://stackoverflow.com/a/54246572)
+- [Youtube Tutorial I used](https://youtu.be/YZvRrldjf1Y)
+- [Just Django, the YouTube channel owner's website](https://justdjango.com/)
+- [CSS template I built from](https://mdbootstrap.com/freebies/jquery/e-commerce/#!)
+- [Formatting monetary numbers with 'humanize'](https://stackoverflow.com/a/347560)
+- [Account authentication: login, signup, etc](https://github.com/pennersr/django-allauth)
+- [Modern usage of Django alluth](https://www.webforefront.com/django/usermanagementallauth.html)
+- [Allowing users to edit account info](https://stackoverflow.com/a/62899728)
+- [USStateField with choices](https://stackoverflow.com/a/1831027)
+- [USStateField](https://github.com/django/django-localflavor)
+- [Django Software Foundation & Contributors](https://www.djangoproject.com/)
+- [Django localflavor (official)](https://github.com/django/django-localflavor)
+- [Stripe payment HTML/CSS](https://stripe.com/docs/payments/elements)
+- [Search products functionality](https://stackoverflow.com/a/54246572)
