@@ -1,0 +1,59 @@
+{% load cart_template_tags %}
+{% load static %}
+
+{% block header %}
+<link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+    <div class="w3-bar prcc-maroon w3-padding w3-card">
+        <!--Left-->
+        <a class=" waves-effect" href="/">
+            <img src="{% static 'img/PRCC-logo-gold.png' %}" class="brand-img" alt="PRCC Wildcats logo">
+            <strong style="color: var(--global-accent);">Wildcat Bookstore</strong>
+        </a>
+
+        <span class="nav-middle" style="display:inline-block"> 
+            {% block navMiddle %}
+            {% endblock navMiddle %}
+        </span>
+        
+
+        <!--Right side. Hidden on small screens-->
+        <!-- make sure to sync classes in scripts -->
+        <div class="w3-right align-items-bottom w3-hide-small mr-1 nav-text" id="navRight">
+            {% if request.user.is_authenticated %}
+            <a href="#myaccount" class="right-nav-link waves-effect">
+                <div class="acc-manage-container">
+                  <div class="acc-line-1">Hello {{ user|title }}</div>
+                  <div class="acc-line-2">Manage Account</div>
+                </div>
+            </a>
+            <a href="{% url 'store:cart' %}" class="right-nav-link  waves-effect">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="clearfix d-none d-sm-inline-block"> Cart </span>
+                {% if request.user|cart_item_count > 0 %}
+                  {% comment %} greater than 0 because non-authenticated returns 0 {% endcomment %}
+                  <span class="badge badge-dark z-depth-1 mr-1"> {{ request.user|cart_item_count }} </span>
+                {% endif %}
+            </a>
+            <a href="{% url 'account_logout' %}" class="right-nav-link waves-effect">
+                <span class="clearfix d-none d-sm-inline-block"> Logout </span>
+            </a>
+
+            {% else %}
+            <a href="{% url 'account_login' %}" class="right-nav-link waves-effect" >
+                <span class="clearfix d-none d-sm-inline-block"> Login </span>
+            </a>
+            <a href="{% url 'account_signup' %}" class="right-nav-link waves-effect">
+                <span class="clearfix d-none d-sm-inline-block"> Signup </span>
+            </a>
+            {% endif %}
+        </div>
+        <a href="javascript:void(0);" class="right-nav-link" onclick="myNavFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+</div>

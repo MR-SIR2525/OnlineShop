@@ -1,0 +1,29 @@
+{% load static %}
+<!-- W3 nav script -->
+<script>
+  function myNavFunction() {
+    var x = document.getElementById("navRight");
+    if (x.className == "w3-right align-items-bottom w3-hide-small mr-1 nav-text") 
+    {
+      x.className += " responsive";
+    } 
+    else {
+      x.className = "w3-right align-items-bottom w3-hide-small mr-1 nav-text";
+    }
+  }
+</script>
+  
+<script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+
+<!-- Initializations -->
+<script type="text/javascript">
+  // Animations initialization
+  new WOW().init();
+
+</script>

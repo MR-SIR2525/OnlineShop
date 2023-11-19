@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block pageTitle %}Store{% endblock %}
+
+
+{% block content %}
+<main>
+	<div class="container min-h">
+		
+		<form method='GET'>
+			<div class="my-0 mx-auto">
+				<input class="form-control mr-sm-2" 
+				type="text" placeholder="Search the store" aria-label="Search"
+				name="search" value="{{ request.GET.search }}">
+			</div>
+		</form> 
+
+		<!--Categories bar-->
+		<nav class="navbar category-nav navbar-expand-lg navbar-light mt-3 mb-3">
+
+			<span class="navbar-brand white-text">Filter by Category:</span>
+
+			<!-- Collapse button -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+				aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<!-- Collapsible content -->
+			<div class="collapse navbar-collapse" id="basicExampleNav">
+
+				<!-- Links -->
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link white-text" href="/">All
+							<!-- <span class="sr-only">(current)</span> -->
+						</a>
+					</li>
+					{% for category in categories %}
+						<li class="nav-item">
+							<a class="nav-link white-text" href="?category={{category.abbreviation}}">{{category|title}}</a>
+						</li>
+					{% empty %}
+						<li class="nav-item">
+							<a class="nav-link white-text" href="#">No categories available</a>
+						</li>
+					{% endfor %}
+				</ul>
+				
+			</div> <!-- end Collapsible content -->
+		</nav>
+
+
+		<!--Products-->
+		<section class="mb-4">
+			<div class="prod-container">
+       
+				{% for item in object_list %}
+				<div class="prod-card">
+					<!--Image-->
+					<a href="{{ item.get_absolute_url }}">
+						<div class="prod-image-box my-1 mx-1">
+							<img src="{{item.image.url}}" class="prod-image" alt="image for {{item.title}}">
+						</div>
+					</a>
+					
+					<!--Price-->
+					<span class="mx-2 prod-price">
+						{% if item.discount_price %}
+							${{ item.discount_price|floatformat:2|intcomma }}
+							<span class="small line-through" style="color:var(--gray);">
+								${{ item.price|floatformat:2|intcomma }}
+							</span>
+						{% else %}
+							${{ item.price|floatformat:2|intcomma }}
+						{% endif %}
+						<!--Label/badge-->
+						{% if item.get_label_display != 'none' and item.get_label_display != none %}
+						<span class="badge badge-pill {{ item.get_label_display }}-color ml-1">NEW</span>
+						{% endif %}
+					</span>
+
+					<!--Item title-->
+					<h5 class="prod-link-outer">
+						<a href="{{ item.get_absolute_url }}" class="dark-grey-text prod-link">
+							{{ item.title }}
+						</a>
+					</h5>
+				</div>
+				{% empty %}
+					<h4>No products were found.</h4>
+				{% endfor %}
+
+			</div> 
+
+		</section>
+		<!--end Products-->
+
+
+		
+		<!--Pagination-->
+		{% if is_paginated %}
+		<nav class="d-flex justify-content-center wow fadeIn">
+			<ul class="pagination pg-blue">
+
+				{% if page_obj.has_previous %}
+				<li class="page-item">
+					<a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+						<span class="sr-only">Previous</span>
+					</a>
+				</li>
+				{% endif %}
+
+				<li class="page-item active">
+					<a class="page-link" href="?page={{ page_obj.number }}">{{ page_obj.number }}
+						<span class="sr-only">(current)</span>
+					</a>
+				</li>
+
+				{% if page_obj.has_next %}
+				<li class="page-item">
+					<a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+						<span class="sr-only">Next</span>
+					</a>
+				</li>
+				{% endif %}
+			</ul>
+		</nav>
+		{% endif %}
+
+	</div>
+</main>
+{% endblock content %}

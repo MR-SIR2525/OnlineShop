@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block pageTitle %}{{ object.title }} Details{% endblock %}
+
+{% block content %}
+
+	<main class="mt-2 pt-0">
+		<div class="container min-h dark-grey-text mt-1">
+
+			<!-- Category badge thing -->
+			<div class="breadcrumb pb-2">
+				{% if object.category %}
+					<a class="breadcrumb-item" href="/?category={{object.category.abbreviation}}" title="View more {{object.category.name}}s">{{object.category.name}}s</a>
+				{% else %}
+					<a class="breadcrumb-item" href="/home">Bookstore</a>
+				{% endif %}
+				<span style="cursor: default;">&nbsp;&rsaquo;&rsaquo;&nbsp;</span>
+				<span class="breadcrumb-item-active">{{object.title}}</span>
+			</div>
+
+			<!--Grid row-->
+			<div class="row wow fadeIn">
+
+				<!--Grid column-->
+				<div class="col-md-6 mb-4">
+					<!--Product Image-->
+					<img src="{{ object.image.url }}" class="img-fluid" alt="{{ object.title }} image">
+				</div>
+
+				<!--Grid column-->
+				<div class="col-md-6 mb-4">
+
+					<!--Content-->
+					<div class="pt-0 pr-4 pl-4 pb-0">
+
+						<h2>{{ object.title }}</h2>
+
+						<hr>
+
+						<!-- Price -->
+						<span class="lead">
+							{% if object.discount_price %}
+								<span class="mr-1">
+									<span class="price-crossed red-text">${{ object.price|floatformat:2|intcomma }}</span>
+								</span>
+								<span>${{ object.discount_price|floatformat:2|intcomma }}</span>
+
+							{% else %}
+								<span>${{ object.price|floatformat:2|intcomma }}</span>
+
+							{% endif %}
+						</span>
+
+						<p class="lead font-weight-normal">About this item:</p>
+
+						<div class="mb-3">
+							{{ object.description|linebreaks }}
+						</div>
+
+						<a href="{{ object.get_add_to_cart_url }}" class="btn btn-primary btn-md my-0 p">
+							Add to cart
+							<i class="fas fa-shopping-cart ml-1"></i>
+						</a>
+
+					</div>
+					<!--end Content-->
+
+				</div>
+				<!--end Grid column-->
+
+			</div>
+			<!--end Grid row-->
+
+			<hr>
+
+			<!--Grid row-->
+			<div class="row d-flex justify-content-center wow fadeIn">
+
+				<!--Grid column-->
+				<div class="col-md-6 text-center">
+
+					<h4 class="my-4 h4">Additional information</h4>
+
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus suscipit modi sapiente illo soluta odit
+						voluptates,
+						quibusdam officia. Neque quibusdam quas a quis porro? Molestias illo neque eum in laborum.</p>
+
+				</div>
+				<!--Grid column-->
+
+			</div>
+			<!--Grid row-->
+
+			<!--Grid row-->
+			<div class="row wow fadeIn">
+
+				<!--Grid column-->
+				<div class="col-lg-4 col-md-12 mb-4">
+
+					<img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/11.jpg" class="img-fluid" alt="">
+
+				</div>
+				<!--Grid column-->
+
+				<!--Grid column-->
+				<div class="col-lg-4 col-md-6 mb-4">
+
+					<img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg" class="img-fluid" alt="">
+
+				</div>
+				<!--Grid column-->
+
+				<!--Grid column-->
+				<div class="col-lg-4 col-md-6 mb-4">
+
+					<img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg" class="img-fluid" alt="">
+
+				</div>
+				<!--Grid column-->
+
+			</div>
+			<!--Grid row-->
+
+		</div>
+	</main>
+
+{% endblock content %}
+
+	<!-- add to cart a chosen quantity -->
+	<!-- <form class="d-flex justify-content-left">
+		<input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
+		<button class="btn btn-primary btn-md my-0 p" type="submit">
+			Add to cart
+			<i class="fas fa-shopping-cart ml-1"></i>
+		</button>
+	</form>  -->

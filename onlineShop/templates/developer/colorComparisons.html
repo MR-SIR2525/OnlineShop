@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block pageTitle %}
+    Dev: Color comparisons
+{% endblock pageTitle %}
+    Developer: Color comparisons
+{% block header %}
+    <style>
+        .color-box {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        {% comment %} Override the navbar color to remove perception bias {% endcomment %}
+        .BBNLT-primary {
+            background-color: unset !important;
+        }
+        
+    </style>
+{% endblock header %}
+
+
+{% block content %}
+
+<div class="container min-h">
+
+    <div class="color-box" style="background-color: #5dade2;"></div>
+    <div class="color-box" style="background-color: #3498db;"></div>
+    <div class="color-box" style="background-color: #2e86c1;"></div>
+    <div class="color-box" style="background-color: #2874a6;"></div>
+    <div class="color-box" style="background-color: rgb(135, 162, 193);"></div>
+    <div class="color-box" style="background-color: #87CEEB;"></div> 
+    <div class="color-box" style="background-color: #87CEFA;"></div>
+        
+    
+
+</div>
+
+{% endblock content %}

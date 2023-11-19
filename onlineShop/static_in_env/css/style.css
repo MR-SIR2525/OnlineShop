@@ -1,0 +1,365 @@
+/* Andrew's CSS additions.
+ * boostrap min was too long to deal with...
+ */
+
+:root {
+    --diag: rgba(30, 144, 255, 0.8);
+    
+    --global-primary: rgb(135, 162, 193); /*OG from Jack*/
+    --global-secondary: #405462;
+    --global-text: #7A7A7A;
+    --global-accent: #FDBB2D;
+    --global-river-stone: #DDD9E0;
+    --global-wrought-iron: #042125;
+    --prcc-dark: #042125;
+    --global-denim: #60809C;
+    --global-khaki: #BEA182;
+    --global-sunset-sky: #E4C0C4;
+    --global-pinebelt-green: #ACD1CA;
+    --global-white: #ECF1F6;
+    --global-9bbd48d: #DFE8F0;
+    --global-ece6658: #E1D7D0;
+
+    --prcc-maroon: #76212D;
+    --prcc-gold: #FDBB2DE6;
+    /* --global-primary: #87CEFA; */
+    /* --global-primary: rgb(115,147,170); */
+    /* --global-secondary: #54595F; */
+}
+
+body,
+html 
+{
+    height: 100%
+}
+
+body 
+{
+    background-color: var(--global-primary);
+}
+
+.brand-img {
+    height: 3rem;
+    width: auto;
+}
+
+.diag {
+    background-color: dodgerblue !important;
+}
+.diag-border {
+    border: 2px solid rgb(30, 229, 255);
+}
+
+.BBNLT-primary {
+    background-color: var(--global-primary);
+}
+.prcc-maroon-text {
+    color: var(--prcc-maroon) !important;
+}
+.prcc-gold, 
+.prcc-accent {
+    background-color: var(--global-accent);
+}
+.prcc-gold-text, .prcc-accent-text {
+    color: var(--global-accent);
+}
+.category-nav {
+    background-color: var(--global-secondary) !important;
+    color: white;
+}
+
+.nav-text > a, .nav-text > li > a {
+    color: white !important;
+}
+
+
+.line-through {
+    text-decoration: line-through;
+}
+.price-crossed {
+    font-size: 65%;
+    font-weight: 400;
+    /* same as bootstrap.min.css --gray */
+    color: #6c757d; 
+    text-decoration: line-through;
+}
+
+.wrap-words {
+    word-wrap: normal;
+}
+
+.vertical-center-force {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.align-items-bottom {
+    display: flex;
+    align-items: flex-end;
+    align-content: flex-end;
+    vertical-align: bottom;
+}
+.align-items-bottom-m > a {
+    vertical-align: bottom;
+}
+
+
+.breadcrumb {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: .75rem 0;
+    list-style: none;
+    /* background-color: #e9ecef; */
+    border-radius: .25rem
+}
+
+.breadcrumb-item+.breadcrumb-item {
+    padding-left: .5rem
+} 
+
+.breadcrumb-item,
+.breadcrumb-item-active
+{
+    color: inherit;
+    font-weight: 400;
+}
+
+.breadcrumb-item-active {
+    text-decoration: none;
+    cursor: default;
+}
+
+.breadcrumb-item:hover {
+    color: #69747d;
+    text-decoration: underline;
+}
+
+
+.BBNLT-title {
+    font-size: 17pt;
+    color: #111416;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: inline-block;
+    background-color: inherit;
+    line-height: normal;
+    vertical-align:middle;
+}
+
+/************ Navbar and related things ************/
+
+/* for navbar, search mdb.min.css for ".navbar.scrolling-navbar" */
+/* Navbar from W3Schools */
+.nav-middle {
+    position: relative;
+    float:left;
+}
+
+.my-nav-icon {
+    display: none;
+}
+
+.w3-top {
+    top: 0;
+}
+
+.w3-top, .w3-bottom {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+.w3-white, .w3-hover-white:hover {
+    color: #000!important;
+    background-color: #fff!important;
+}
+.w3-padding {
+    padding: 8px 16px!important;
+}
+.w3-card, .w3-card-2 {
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+.w3-bar {
+    width: 100%;
+    overflow: hidden;
+}
+.w3-wide {
+    letter-spacing: 4px;
+}
+.w3-bar .w3-bar-item {
+    float: left;
+    width: auto;
+    border: none;
+    display: block;
+    outline: 0;
+}
+
+.right-nav-link {
+    padding: 0.5rem .75rem;
+}
+.w3-btn, .w3-button {
+    border: none;
+    display: inline-block;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.w3-right {
+    float: right!important;
+}
+
+
+.acc-manage-container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  /* background-color: #2196F3; */
+  padding: 0;
+}
+.acc-line-1, .acc-line-2
+{
+  /* background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.2); */
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+.acc-line-1 {
+    font-size: 0.8rem;
+    font-weight: 300;
+    margin-bottom: -0.4rem;
+}
+.acc-line-2 {
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+/* `.navbar-brand` has padding-y 0 now. Originals were muted. */
+
+
+/************** Home/product page specific **************/
+.prod-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    justify-content: space-between;
+}
+
+.prod-card {
+    border-radius: 4px;
+    background-color: white;
+}
+  
+.prod-link {
+    text-decoration: none !important;
+    color: #042125;
+    font-size: 1rem;
+    line-height: 1;
+    font-weight: 400;
+}
+.prod-link-outer {
+    padding: 0 0.5rem;
+    line-height: 1.1;
+}
+.prod-price {
+    font-size: 0.9rem;
+}
+.prod-image-box {
+    /* figure out how to make this a square at all times */
+    max-width: 100%;
+    height: 215px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.prod-image {
+    max-width: 100%;
+    max-height: 100%;
+}
+.prod-image, .image-box {
+    border-radius: 0;   
+}
+@media screen and (max-width:896px) {
+    .prod-image-box {
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .prod-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .prod-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.prod-card:hover, .prod-card:active, .prod-card:focus
+{
+    filter: brightness(80%);
+    transition: all ease 0.25s;
+}
+
+
+.carousel {
+    height: 50%
+}
+
+.carousel .carousel-inner,
+.carousel .carousel-inner .active,
+.carousel .carousel-inner .carousel-item 
+{
+    height: 100%
+}
+
+@media (max-width:776px) 
+{
+    .carousel 
+    {
+        height: 100%
+    }
+}
+
+
+
+
+/************** Footer **************/
+.w3-black, .w3-hover-black:hover {
+    color: #fff!important;
+    background-color: #000!important;
+}
+.w3-padding-16 {
+    padding-top: 16px!important;
+    padding-bottom: 16px!important;
+}
+.w3-center {
+    text-align: center!important;
+}
+/* from mdb.min.css */
+
+
+/************* Footer fix *************/
+/* this makes the footer stay where it's supposed to */
+.min-h {
+    /* position: relative; */
+    min-height: 65vh;
+}
+
+.page-footer 
+{
+    background-color: var(--global-wrought-iron);
+    bottom: 0;
+    width: 100%;
+}

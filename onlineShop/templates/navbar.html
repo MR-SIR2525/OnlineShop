@@ -1,0 +1,76 @@
+{% load cart_template_tags %}
+{% load static %}
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-light BBNLT-primary scrolling-navbar">
+  <div class="container" style="width: 100% !important;">
+
+    <!-- Brand/left -->
+    <a class="navbar-brand waves-effect" href="/">
+      <img src="{% static 'img/BBNLT pfp clear.png' %}" class="brand-img" alt="BBNLT profile picture-type logo">
+      <span class="BBNLT-title" data-no-translation>Big Boys<br>Need Lovin' Too</span>
+    </a>
+
+    <!-- Collapse mode -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <!-- Everything except brand -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <!-- Left/Middle -->
+      <ul class="navbar-nav nav-middle">
+        <li>
+         <!-- navMiddle here -->
+        </li>
+      </ul>
+
+      <!-- Right side -->
+      <ul class="nav-text navbar-nav nav-flex-icons ml-auto align-items-bottom">
+        {% if request.user.is_authenticated %}
+
+        <li class="nav-item">
+          <a href="{% url 'store:account-edit' %}" class="nav-link waves-effect">
+            <div class="acc-manage-container">
+              <div class="acc-line-1">Hello, {{ user|title }}</div>
+              <div class="acc-line-2">Manage Account</div>
+            </div>
+          </a>
+        </li>
+        
+
+        <li class="nav-item">
+          <a href="{% url 'store:cart' %}" class="nav-link waves-effect">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="clearfix d-sm-inline-block"> Cart </span>
+            {% if request.user|cart_item_count > 0 %}
+              {% comment %} greater than 0 because non-authenticated returns 0 {% endcomment %}
+              <span class="badge badge-dark z-depth-1 mr-1"> {{ request.user|cart_item_count }} </span>
+            {% endif %}
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="{% url 'account_logout' %}">
+            <span class="clearfix d-sm-inline-block"> Logout </span>
+          </a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="{% url 'account_login' %}">
+            <span class="clearfix d-sm-inline-block"> Login </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-effect" href="{% url 'account_signup' %}">
+            <span class="clearfix d-sm-inline-block"> Signup </span>
+          </a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+
+  </div>
+</nav>
